@@ -1,6 +1,6 @@
 # CSS Advanced - Homepage Clone
 
-This project is a CSS styling exercise based on a designer mockup provided in Figma. The goal was to bring a static HTML structure to life using advanced CSS techniques.
+This project is a CSS styling exercise based on a designer mockup provided in Figma. The goal was to bring a static HTML structure to life by providing and updating with the correct HTML structures and using advanced CSS techniques.
 
 ## 🌟 Objectives
 
@@ -17,18 +17,14 @@ This project is a CSS styling exercise based on a designer mockup provided in Fi
 - Git & GitHub
 
 ## 🖼 Screenshot
-*(In a jiffy)*
+<img src="https://github.com/gemgeek/gems-digital-journal/blob/main/assets/Advanced%20HTML%20Project.png" alt="screenshot">
 
 ## 💡 What I Learned
 
 - How to match pixel-perfect layouts using Figma
 - Applying custom fonts with `@font-face`
 - Better understanding of spacing, alignment, and typography in CSS
-- How to use the Chrome DevTools + Figma together
 
-## 🔗 Live Preview
-
-Coming soon...
 
 ## 👩🏽‍💻 Author
 
