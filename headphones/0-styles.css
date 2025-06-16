@@ -88,7 +88,7 @@ button:active {
     display: flex; 
     flex-direction: column;
     justify-content: flex-start; 
-    padding-top: 50px; 
+    padding-top: 10px; 
     color: var(--text-color-light); 
     text-align: center; 
 }
@@ -146,7 +146,7 @@ button:active {
 
 /* Hero Content Styling */
 .hero-content {
-    padding-top: 100px; 
+    padding-top: 250px; 
     flex-grow: 1; 
     display: flex;
     flex-direction: column;
@@ -161,7 +161,7 @@ button:active {
     font-size: 44px;
     font-weight: bold;
     margin-bottom: 20px;
-    line-height: 1.2;
+    line-height: 1.5;
 }
 
 .hero-content .hero-subtitle {
@@ -174,7 +174,7 @@ button:active {
     font-size: 16px;
     font-weight: normal;
     line-height: 1.8;
-    margin-top: 40px;
+    margin-top: 60px;
     opacity: 0.9;
 }
 
@@ -231,7 +231,7 @@ button:active {
     }
 
     .hero-content {
-        padding-top: 50px; 
+        padding-top: 50%; 
         margin-bottom: 50px; 
     }
 
