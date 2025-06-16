@@ -1,0 +1,251 @@
+/* --- CSS Reset --- */
+/* A simple reset to remove default browser styling */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; 
+}
+
+/* Base body styles */
+body {
+    font-family: 'Source Sans Pro', sans-serif; 
+    line-height: 1.6;
+    color: #fff; 
+    background-color: #000; 
+}
+
+/* --- CSS Variables --- */
+:root {
+    --primary-color: #FF6565; 
+    --text-color-light: #fff;
+    --text-color-dark: #333; 
+    --bg-dark: #07071F; 
+    --max-content-width: 1000px; 
+    --default-padding: 20px;
+    --font-spin-cycle: 'Spin Cycle OT', sans-serif; 
+    --font-source-sans-pro: 'Source Sans Pro', sans-serif; 
+}
+
+/* --- Font Imports --- */
+@font-face {
+    font-family: 'Source Sans Pro';
+    src: url('fonts/SourceSansPro-Regular.ttf') format('truetype'); 
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Spin Cycle OT';
+    src: url('fonts/SpinCycle-OT.otf') format('opentype'); 
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+.container {
+    max-width: var(--max-content-width);
+    margin: 0 auto; 
+    padding: 0 var(--default-padding); 
+}
+
+a {
+    text-decoration: none;
+    color: var(--text-color-light);
+    transition: color 0.3s ease; 
+}
+
+a:hover,
+a:active {
+    color: var(--primary-color); 
+}
+
+button {
+    background-color: var(--primary-color);
+    color: var(--text-color-light);
+    border: none;
+    padding: 15px 30px;
+    border-radius: 25px; 
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: opacity 0.3s ease; 
+}
+
+button:hover,
+button:active {
+    opacity: 0.9; 
+}
+
+/* --- Header/Hero Section Styling --- */
+
+.hero-section {
+    min-height: 100vh; 
+    background-image: url('images/headphones_hero_1.jpg'); 
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat;
+    display: flex; 
+    flex-direction: column;
+    justify-content: flex-start; 
+    padding-top: 50px; 
+    color: var(--text-color-light); 
+    text-align: center; 
+}
+
+/* Navbar Styling */
+.navbar {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    padding: var(--default-padding) 0; 
+    position: relative; 
+}
+
+.navbar .logo img {
+    height: 30px; 
+    width: auto;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex; 
+    gap: 40px; 
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.nav-links li a {
+    font-size: 12px;
+}
+
+.menu-toggle {
+    display: none; 
+}
+
+.menu-icon {
+    display: none; 
+    flex-direction: column;
+    justify-content: space-between;
+    width: 25px;
+    height: 20px;
+    cursor: pointer;
+    position: absolute; 
+    right: var(--default-padding); 
+    top: calc(var(--default-padding) + 10px); 
+}
+
+.menu-icon span {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: var(--text-color-light);
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+/* Hero Content Styling */
+.hero-content {
+    padding-top: 100px; 
+    flex-grow: 1; 
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    justify-content: center; 
+    max-width: 600px; 
+    margin: 0 auto; 
+    text-align: center; 
+}
+
+.hero-content h1 {
+    font-size: 44px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.hero-content .hero-subtitle {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 30px;
+}
+
+.hero-content .hero-description {
+    font-size: 16px;
+    font-weight: normal;
+    line-height: 1.8;
+    margin-top: 40px;
+    opacity: 0.9;
+}
+
+/* --- Responsive Design for Mobile (480px or less) --- */
+@media (max-width: 480px) {
+    .hero-section {
+        background-image: url('images/headphones_hero_1.jpg'); 
+        padding-top: var(--default-padding); 
+    }
+
+    .navbar {
+        flex-wrap: wrap; 
+        justify-content: center; 
+        position: relative; 
+        padding: 15px var(--default-padding); 
+    }
+
+    .navbar .logo {
+        flex-basis: 100%; 
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .nav-links {
+        display: none; 
+        flex-direction: column; 
+        width: 100%;
+        text-align: center;
+        gap: 20px; 
+        padding-bottom: 20px;
+    }
+
+
+    .menu-icon {
+        display: flex; 
+        right: var(--default-padding); 
+        top: 25px; 
+    }
+
+    /* When menu-toggle is checked, show nav-links */
+    .menu-toggle:checked ~ .nav-links {
+        display: flex; 
+    }
+
+    /* Animate hamburger icon (pure CSS) */
+    .menu-toggle:checked ~ .menu-icon span:nth-child(1) {
+        transform: translateY(8.5px) rotate(45deg);
+    }
+    .menu-toggle:checked ~ .menu-icon span:nth-child(2) {
+        opacity: 0;
+    }
+    .menu-toggle:checked ~ .menu-icon span:nth-child(3) {
+        transform: translateY(-8.5px) rotate(-45deg);
+    }
+
+    .hero-content {
+        padding-top: 50px; 
+        margin-bottom: 50px; 
+    }
+
+    .hero-content h1 {
+        font-size: 32px; 
+    }
+
+    .hero-content .hero-subtitle,
+    .hero-content .hero-description {
+        font-size: 14px; 
+    }
+
+    button {
+        padding: 12px 25px; 
+        font-size: 12px;
+    }
+}
