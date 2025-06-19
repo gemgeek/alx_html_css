@@ -1,0 +1,979 @@
+@font-face {
+    font-family: 'holberton_school-icon';
+    src:  url('holberton_school-icon/fonts/holberton_school-icon.eot?sq4eq4');
+    src:  url('holberton_school-icon/fonts/holberton_school-icon.eot?sq4eq4#iefix') format('embedded-opentype'),
+          url('holberton_school-icon/fonts/holberton_school-icon.ttf?sq4eq4') format('truetype'),
+          url('holberton_school-icon/fonts/holberton_school-icon.woff?sq4eq4') format('woff'),
+          url('holberton_school-icon/fonts/holberton_school-icon.svg?sq4eq4#holberton_school-icon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+}
+
+/* This applies the font-family and basic rendering for all holberton_school-icon classes */
+[class^="holberton_school-icon-"], [class*=" holberton_school-icon-"] {
+    /* Use the holberton_school-icon font */
+    font-family: 'holberton_school-icon' !important;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.holberton_school-icon-arrow_1:before { content: "\e900"; }
+.holberton_school-icon-arrow_2:before { content: "\e901"; }
+.holberton_school-icon-arrow_3:before { content: "\e902"; }
+.holberton_school-icon-arrow_4:before { content: "\e903"; }
+.holberton_school-icon-arrow_5:before { content: "\e904"; }
+.holberton_school-icon-check:before { content: "\e905"; }
+.holberton_school-icon-ic_bag:before { content: "\e906"; }
+.holberton_school-icon-ic_cart:before { content: "\e907"; }
+.holberton_school-icon-ic_facebook:before { content: "\e908"; }
+.holberton_school-icon-ic_hearing:before { content: "\e909"; } 
+.holberton_school-icon-ic_instagram:before { content: "\e90a"; }
+.holberton_school-icon-ic_laptop:before { content: "\e90b"; }
+.holberton_school-icon-ic_money:before { content: "\e90c"; }
+.holberton_school-icon-ic_music:before { content: "\e90d"; } 
+.holberton_school-icon-ic_sound:before { content: "\e90e"; } 
+.holberton_school-icon-ic_twitter:before { content: "\e90f"; }
+.holberton_school-icon-ic_video:before { content: "\e910"; } 
+.holberton_school-icon-menu:before { content: "\e911"; }
+.holberton_school-icon-search_1:before { content: "\e912"; }
+.holberton_school-icon-search_2:before { content: "\e913"; }
+.holberton_school-icon-star:before { content: "\e914"; }
+
+
+
+/* --- CSS Reset --- */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; 
+}
+
+/* Base body styles */
+body {
+    font-family: 'Source Sans Pro', sans-serif; /* Default font */
+    line-height: 1.6;
+    color: #fff; /* Default text color for the hero section */
+    background-color: #000; /* Default background for the entire page */
+}
+
+/* --- CSS Variables --- */
+/* Define reusable values for colors, fonts, etc. */
+:root {
+    --primary-color: #FF6565; /* For links hover/active, button background */
+    --text-color-light: #fff;
+    --color-dark-text: #07071F; /* Dark text color for light sections */
+    --bg-dark: #07071F; /* Dark background for hero and results sections */
+    --bg-light: #fff; /* Light background for 'What we do' section */
+    --max-content-width: 1000px; /* Max width of content */
+    --default-padding: 20px;
+    --section-vertical-padding: 100px; /* Consistent vertical padding for sections */
+    --font-spin-cycle: 'Spin Cycle OT', sans-serif; /* Custom font */
+    --font-source-sans-pro: 'Source Sans Pro', sans-serif; /* Custom font */
+}
+
+/* --- Custom Font Imports (for Source Sans Pro and Spin Cycle OT) --- */
+@font-face {
+    font-family: 'Source Sans Pro';
+    src: url('fonts/SourceSansPro-Regular.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Spin Cycle OT';
+    src: url('fonts/SpinCycle-OT.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* --- Global Styles --- */
+
+.container {
+    max-width: var(--max-content-width);
+    margin: 0 auto; /* Centers the container horizontally */
+    padding: 0 var(--default-padding); /* Add horizontal padding for smaller screens */
+}
+
+a {
+    text-decoration: none;
+    color: var(--text-color-light);
+    transition: color 0.3s ease; /* Smooth transition for hover */
+}
+
+a:hover,
+a:active {
+    color: var(--primary-color); /* Link hover/active state */
+}
+
+button {
+    background-color: var(--primary-color);
+    color: var(--text-color-light);
+    border: none;
+    padding: 15px 30px;
+    border-radius: 25px; /* Rounded corners */
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: opacity 0.3s ease; /* Smooth transition for hover */
+}
+
+button:hover,
+button:active {
+    opacity: 0.9; /* Button hover/active state */
+}
+
+.section-title {
+    font-size: 32px;
+    font-weight: bold;
+    text-align: center;
+    color: var(--color-dark-text); /* Default dark text for sections like 'What we do' */
+    margin-bottom: 20px;
+}
+
+.section-description {
+    font-size: 16px;
+    text-align: center;
+    color: var(--color-dark-text); /* Default dark text */
+    max-width: 700px; /* Constrain width for readability */
+    margin: 0 auto 80px auto; /* Center and add bottom margin */
+    line-height: 1.8;
+}
+
+/* --- Header/Hero Section Styling --- */
+
+.hero-section {
+    min-height: 100vh; /* Takes at least the full viewport height */
+    background-image: url('images/headphones_hero_1.jpg'); /* Desktop background image */
+    background-size: cover; /* Cover the entire area */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat;
+    display: flex; 
+    flex-direction: column;
+    justify-content: flex-start; /* Align content to the top */
+    padding-top: 10px; /* Padding for the top of the header */
+    color: var(--text-color-light); /* Ensure text is white */
+    text-align: center; /* Center text within hero content */
+}
+
+/* Navbar Styling */
+.navbar {
+    display: flex;
+    justify-content: space-between; /* Space between logo and nav links */
+    align-items: center;
+    padding: var(--default-padding) 0; /* Vertical padding, 0 horizontal as container handles it */
+    position: relative; /* For positioning hamburger menu */
+}
+
+.navbar .logo img {
+    height: 30px; /* Fixed height for the logo */
+    width: auto;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex; /* Display links in a row */
+    gap: 40px; /* Space between nav items */
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.nav-links li a {
+    font-size: 12px;
+}
+
+/* Hamburger Menu Icon (Hidden on Desktop) */
+.menu-toggle {
+    display: none; /* Hide the checkbox input */
+}
+
+.menu-icon {
+    display: none; /* Hidden by default, shown on mobile */
+    flex-direction: column;
+    justify-content: space-between;
+    width: 25px;
+    height: 20px;
+    cursor: pointer;
+    position: absolute; /* Position relative to navbar */
+    right: var(--default-padding); /* Align to the right edge of the container */
+    top: calc(var(--default-padding) + 10px); /* Adjust vertically */
+}
+
+.menu-icon span {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: var(--text-color-light);
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+/* Hero Content Styling */
+.hero-content {
+    padding-top: 250px; /* Space from navbar */
+    flex-grow: 1; /* Allows content to take up available vertical space */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center items horizontally */
+    justify-content: center; /* Center items vertically within available space */
+    max-width: 600px; /* Constrain hero text width */
+    margin: 0 auto; /* Center hero text block */
+    text-align: center; /* Ensure text is centered */
+}
+
+.hero-content h1 {
+    font-size: 44px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.hero-content .hero-subtitle {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 30px;
+}
+
+.hero-content .hero-description {
+    font-size: 16px;
+    font-weight: normal;
+    line-height: 1.8;
+    margin-top: 40px;
+    opacity: 0.9;
+}
+
+
+/* --- "What we do..." Section Styling --- */
+
+.what-we-do-section {
+    background-color: var(--bg-light); /* White background */
+    padding: var(--section-vertical-padding) 0; /* Apply consistent vertical padding */
+}
+
+.features-grid {
+    display: grid; /* Use CSS Grid for layout */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive grid columns */
+    gap: 40px 20px; /* Gap between grid items (row-gap column-gap) */
+    text-align: center;
+    margin-top: 50px;
+}
+
+.feature-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    /* --- ADD LINE FOR TRANSITION --- */
+    transition: transform 0.3s ease-out; /* Smooth transition for scale effect */
+}
+
+/* --- ADD NEW RULE FOR HOVER EFFECT --- */
+.feature-item:hover {
+    transform: scale(1.05); /* Slightly enlarge the item on hover */
+}
+
+/* Styling for the font icons (these apply after the imported icon CSS) */
+/* This rule must also include the font-family if it's not inherited correctly */
+.holberton_school-icon { /* This class is applied to ALL your <i> icon tags */
+    font-family: 'holberton_school-icon' !important; /* Ensure this is here and active */
+    font-size: 100px; /* Adjust size as needed based on design */
+    color: var(--primary-color); /* Icon color */
+    margin-bottom: 20px;
+}
+
+
+.feature-item h3 {
+    font-size: 20px;
+    font-weight: bold;
+    color: var(--color-dark-text);
+    margin-bottom: 15px;
+}
+
+.feature-item p {
+    font-size: 14px;
+    color: var(--color-dark-text);
+    line-height: 1.7;
+}
+
+
+/* --- Responsive Design for Mobile (480px or less) --- */
+@media (max-width: 480px) {
+    .hero-section {
+        background-image: url('images/headphones_hero_1.jpg'); /* Mobile background image */
+        padding-top: var(--default-padding); /* Reduce top padding for mobile */
+    }
+
+    .navbar {
+        flex-wrap: wrap; /* Allow items to wrap */
+        justify-content: center; /* Center items */
+        position: relative; /* Keep relative for menu icon positioning */
+        padding: 15px var(--default-padding); /* Adjust padding */
+    }
+
+    .navbar .logo {
+        flex-basis: 100%; /* Logo takes full width on top */
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .nav-links {
+        display: none; /* Hide nav links by default on mobile */
+        flex-direction: column; /* Stack links vertically */
+        width: 100%;
+        text-align: center;
+        gap: 20px; /* Adjust spacing */
+        padding-bottom: 20px;
+    }
+
+    /* Show menu icon on mobile */
+    .menu-icon {
+        display: flex; /* Show hamburger icon */
+        right: var(--default-padding); /* Keep aligned to right */
+        top: 25px;
+    }
+
+    /* When menu-toggle is checked, show nav-links */
+    .menu-toggle:checked ~ .nav-links {
+        display: flex;
+    }
+
+    /* Animate hamburger icon (pure CSS) */
+    .menu-toggle:checked ~ .menu-icon span:nth-child(1) {
+        transform: translateY(8.5px) rotate(45deg);
+    }
+    .menu-toggle:checked ~ .menu-icon span:nth-child(2) {
+        opacity: 0;
+    }
+    .menu-toggle:checked ~ .menu-icon span:nth-child(3) {
+        transform: translateY(-8.5px) rotate(-45deg);
+    }
+
+    .hero-content {
+        padding-top: 50px;
+        margin-bottom: 50px;
+    }
+
+    .hero-content h1 {
+        font-size: 32px;
+    }
+
+    .hero-content .hero-subtitle,
+    .hero-content .hero-description {
+        font-size: 14px;
+    }
+
+    button {
+        padding: 12px 25px;
+        font-size: 12px;
+    }
+
+    /* "What we do..." Mobile Adjustments */
+    .section-title {
+        font-size: 28px;
+    }
+
+    .section-description {
+        margin-bottom: 50px;
+        padding: 0 15px;
+    }
+
+    .features-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+}
+
+/* --- "Our results" Section Styling --- */
+.our-results-section {
+    background-color: var(--bg-dark); /* Dark base background color */
+    padding: var(--section-vertical-padding) 0;
+    color: var(--text-color-light);
+
+    background-image: url('images/headphones_hero_2.jpg'); 
+    background-size: cover;
+    background-position: center;
+}
+
+/* Overriding section-title and description for this dark section */
+.our-results-section .section-title,
+.our-results-section .section-description {
+    color: var(--text-color-light);
+}
+
+.results-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Same responsive grid as features-grid */
+    gap: 40px 20px;
+    text-align: center;
+    margin-top: 50px;
+}
+
+.result-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    /* --- ADD LINE FOR TRANSITION --- */
+    transition: transform 0.3s ease-out; /* Smooth transition for scale effect */
+}
+
+/* --- ADD NEW RULE FOR HOVER EFFECT --- */
+.result-item:hover {
+    transform: scale(1.05); /* Slightly enlarge the item on hover */
+}
+
+/* Pentagon shape for numbers and text */
+.pentagon {
+    width: 150px; /* Adjust size as needed */
+    height: 150px; /* Adjust size as needed */
+    background-color: var(--primary-color);
+    position: relative; /* Keep relative for clip-path */
+    clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%); /* Creates a pentagon shape */
+    display: flex;
+    flex-direction: column; /* Stack children vertically */
+    justify-content: center; /* Center content vertically */
+    align-items: center; /* Center content horizontally */
+    margin-bottom: 20px; /* Space between pentagon and the item below it */
+    text-align: center; /* Center text within pentagon */
+    padding: 10px; /* Add some padding inside the pentagon */
+}
+
+.result-number {
+    font-family: var(--font-spin-cycle); /* Use the custom spin cycle font */
+    font-size: 44px; /* Large size for numbers */
+    font-weight: bold;
+    color: var(--text-color-light); /* White color for numbers */
+    line-height: 1; /* Adjust line height to prevent extra space */
+    margin-bottom: 5px; /* Small space between number and text */
+}
+
+.pentagon-text { /* New class for the text inside the pentagon */
+    font-size: 14px;
+    color: var(--text-color-light);
+    line-height: 1.2;
+    text-align: center;
+    margin: 0; /* Remove default paragraph margin */
+}
+
+
+/* --- Responsive Design for Mobile (480px or less) --- */
+@media (max-width: 480px) {
+    .hero-section {
+        background-image: url('images/headphones_hero_1.jpg');
+        padding-top: var(--default-padding);
+    }
+
+    .navbar {
+        flex-wrap: wrap;
+        justify-content: center;
+        position: relative;
+        padding: 15px var(--default-padding);
+    }
+
+    .navbar .logo {
+        flex-basis: 100%;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+        gap: 20px;
+        padding-bottom: 20px;
+    }
+
+    /* Show menu icon on mobile */
+    .menu-icon {
+        display: flex;
+        right: var(--default-padding);
+        top: 25px;
+    }
+
+    /* When menu-toggle is checked, show nav-links */
+    .menu-toggle:checked ~ .nav-links {
+        display: flex;
+    }
+
+    /* Animate hamburger icon (pure CSS) */
+    .menu-toggle:checked ~ .menu-icon span:nth-child(1) {
+        transform: translateY(8.5px) rotate(45deg);
+    }
+    .menu-toggle:checked ~ .menu-icon span:nth-child(2) {
+        opacity: 0;
+    }
+    .menu-toggle:checked ~ .menu-icon span:nth-child(3) {
+        transform: translateY(-8.5px) rotate(-45deg);
+    }
+
+    .hero-content {
+        padding-top: 50px;
+        margin-bottom: 50px;
+    }
+
+    .hero-content h1 {
+        font-size: 32px;
+    }
+
+    .hero-content .hero-subtitle,
+    .hero-content .hero-description {
+        font-size: 14px;
+    }
+
+    button {
+        padding: 12px 25px;
+        font-size: 12px;
+    }
+
+    /* "What we do..." Mobile Adjustments */
+    .section-title {
+        font-size: 28px;
+    }
+
+    .section-description {
+        margin-bottom: 50px;
+        padding: 0 15px;
+    }
+
+    .features-grid,
+    .results-grid { /* Apply mobile grid to both */
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    /* "Our results" Mobile Adjustments */
+    .result-item {
+        padding-bottom: 50px;
+    }
+
+    .pentagon {
+        width: 120px;
+        height: 120px;
+        margin-bottom: 10px;
+        padding: 5px; /* Adjust padding for mobile */
+    }
+
+    .result-number {
+        font-size: 36px;
+    }
+
+    .pentagon-text {
+        font-size: 12px; /* Smaller text for mobile */
+    }
+}
+
+/* --- "Contact us" Section Styling --- */
+.contact-section {
+    background-color: var(--bg-light); /* White background for contact section */
+    padding: var(--section-vertical-padding) 0;
+    color: var(--color-dark-text); /* Dark text for the form */
+}
+
+.contact-form {
+    max-width: 500px; /* Constrain form width */
+    margin: 50px auto 0 auto; /* Center the form below the title */
+    padding: 20px;
+}
+
+.form-group {
+    margin-bottom: 30px; /* Space between form fields */
+}
+
+.form-group label {
+    display: block; /* Make label appear on its own line */
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: var(--color-dark-text);
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group textarea {
+    width: 100%;
+    padding: 10px 0; /* Add vertical padding, no horizontal as border is below */
+    border: none; /* Remove default border */
+    border-bottom: 1px solid #ccc; /* Only bottom border */
+    background-color: transparent; /* Ensure transparent background */
+    font-size: 16px;
+    color: var(--color-dark-text);
+    outline: none; /* Remove outline on focus */
+    transition: border-color 0.3s ease; /* Smooth transition for focus effect */
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="email"]:focus,
+.form-group textarea:focus {
+    border-bottom-color: var(--primary-color); /* Highlight border on focus */
+}
+
+.form-group textarea {
+    resize: vertical; /* Allow vertical resizing only */
+}
+
+.contact-form .call-to-action-btn {
+    display: block; /* Make button take full width if needed, or just block-level */
+    margin: 50px auto 0 auto; /* Center the button and add space above */
+    max-width: 200px; /* Constrain button width */
+}
+
+
+/* --- Responsive Design for Mobile (480px or less) --- */
+@media (max-width: 480px) {
+    .hero-section {
+        background-image: url('images/headphones_hero_1.jpg');
+        padding-top: var(--default-padding);
+    }
+
+    .navbar {
+        flex-wrap: wrap;
+        justify-content: center;
+        position: relative;
+        padding: 15px var(--default-padding);
+    }
+
+    .navbar .logo {
+        flex-basis: 100%;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+        gap: 20px;
+        padding-bottom: 20px;
+    }
+
+    /* Show menu icon on mobile */
+    .menu-icon {
+        display: flex;
+        right: var(--default-padding);
+        top: 25px;
+    }
+
+    /* When menu-toggle is checked, show nav-links */
+    .menu-toggle:checked ~ .nav-links {
+        display: flex;
+    }
+
+    /* Animate hamburger icon (pure CSS) */
+    .menu-toggle:checked ~ .menu-icon span:nth-child(1) {
+        transform: translateY(8.5px) rotate(45deg);
+    }
+    .menu-toggle:checked ~ .menu-icon span:nth-child(2) {
+        opacity: 0;
+    }
+    .menu-toggle:checked ~ .menu-icon span:nth-child(3) {
+        transform: translateY(-8.5px) rotate(-45deg);
+    }
+
+    .hero-content {
+        padding-top: 50px;
+        margin-bottom: 50px;
+    }
+
+    .hero-content h1 {
+        font-size: 32px;
+    }
+
+    .hero-content .hero-subtitle,
+    .hero-content .hero-description {
+        font-size: 14px;
+    }
+
+    button {
+        padding: 12px 25px;
+        font-size: 12px;
+    }
+
+    /* "What we do..." Mobile Adjustments */
+    .section-title {
+        font-size: 28px;
+    }
+
+    .section-description {
+        margin-bottom: 50px;
+        padding: 0 15px;
+    }
+
+    .features-grid,
+    .results-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    /* "Our results" Mobile Adjustments */
+    .result-item {
+        padding-bottom: 50px;
+    }
+
+    .pentagon {
+        width: 120px;
+        height: 120px;
+        margin-bottom: 10px;
+        padding: 5px;
+    }
+
+    .result-number {
+        font-size: 36px;
+    }
+
+    .pentagon-text {
+        font-size: 12px;
+    }
+
+    /* "Contact us" Mobile Adjustments */
+    .contact-form {
+        margin-top: 30px; /* Less space from title on mobile */
+        padding: 0 15px; /* Adjust padding for small screens */
+    }
+
+    .form-group {
+        margin-bottom: 25px; /* Slightly less space between fields */
+    }
+
+    .contact-form .call-to-action-btn {
+        max-width: 180px; /* Smaller button on mobile */
+        font-size: 12px;
+        padding: 12px 25px;
+    }
+}
+
+/* --- Footer Section Styling --- */
+.footer-section {
+    background-color: var(--bg-dark); /* Dark background like results section */
+    padding: 40px 0 20px 0; /* Adjust vertical padding: top 40px, bottom 20px */
+    color: var(--text-color-light); /* White text */
+    display: flex; /* Make it a flex container */
+    flex-direction: column; /* Stack its children vertically */
+    align-items: center; /* Center children horizontally */
+}
+
+
+.footer-top { /* Renamed from .footer-content */
+    display: flex;
+    flex-direction: column; /* Stack items vertically by default for mobile-first */
+    align-items: center; /* Center items horizontally */
+    width: 100%; /* Ensure it takes full width to spread out on desktop */
+    padding-bottom: 30px; /* Space between top row and copyright */
+}
+
+.footer-logo img {
+    height: 30px; /* Keep logo size consistent */
+    width: auto;
+}
+
+.social-icons {
+    display: flex;
+    gap: 20px; /* Space between social icons */
+}
+
+.social-icon-link {
+    display: flex; /* Makes it a flex container to center the icon */
+    justify-content: center; /* Centers icon horizontally */
+    align-items: center; /* Centers icon vertically */
+    width: 40px; /* Size of the circular background */
+    height: 40px; /* Size of the circular background */
+    border-radius: 50%; /* Makes it circular */
+    background-color: rgba(255, 255, 255, 0.1); /* Slightly transparent white background */
+    transition: background-color 0.3s ease;
+}
+
+/* Specific styling for the actual <i> icon within social links in the footer */
+.social-icons .holberton_school-icon {
+    font-size: 20px; /* Smaller size for social icons */
+    color: var(--text-color-light) !important; /* Force white color to override global rule */
+    /* Ensure no margin/padding is inherited from the general .holberton_school_icon rule that would cause overlapping */
+    margin: 0;
+    padding: 0;
+}
+
+.social-icon-link:hover {
+    background-color: var(--primary-color); /* Primary color on hover */
+}
+
+/* New container for copyright text */
+.copyright-container {
+    text-align: center; /* Center text within its own container */
+    padding-top: 20px; /* Space above copyright */
+    border-top: 0px solid rgba(255, 255, 255, 0.1); /* Subtle line above copyright */
+    width: 100%; /* Ensure it takes full width to truly center */
+}
+
+.copyright-container p { /* Target paragraph inside copyright container */
+    font-size: 14px;
+    opacity: 0.7; /* Slightly faded copyright text */
+    margin: 0; /* Remove default paragraph margin */
+}
+
+/* --- Responsive Design for Mobile (480px or less) --- */
+@media (max-width: 480px) {
+    .hero-section {
+        background-image: url('images/headphones_hero_1.jpg');
+        padding-top: var(--default-padding);
+    }
+
+    .navbar {
+        flex-wrap: wrap;
+        justify-content: center;
+        position: relative;
+        padding: 15px var(--default-padding);
+    }
+
+    .navbar .logo {
+        flex-basis: 100%;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .nav-links {
+        display: flex; /* Keep flex for structure when visible, but control visibility with max-height */
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+        gap: 20px;
+        padding-bottom: 20px;
+        /* --- ADD/MODIFY THESE LINES FOR ANIMATION INITIAL STATE --- */
+        max-height: 0; /* Initially hidden */
+        overflow: hidden; /* Hide overflowing content during transition */
+        transition: max-height 0.3s ease-out; /* Smooth transition for opening/closing */
+    }
+
+    /* --- ADD NEW RULE FOR JS-TOGGLED ACTIVE STATE --- */
+    .nav-links.menu-active { /* This class will be added by JavaScript */
+        max-height: 300px; /* A value large enough to show all menu items */
+    }
+
+    /* Show menu icon on mobile */
+    .menu-icon {
+        display: flex; /* Show hamburger icon */
+        right: var(--default-padding); /* Keep aligned to right */
+        top: 25px;
+    }
+}
+
+    /* Animate hamburger icon (pure CSS) */
+    .menu-toggle:checked ~ .menu-icon span:nth-child(1) {
+        transform: translateY(8.5px) rotate(45deg);
+    }
+    .menu-toggle:checked ~ .menu-icon span:nth-child(2) {
+        opacity: 0;
+    }
+    .menu-toggle:checked ~ .menu-icon span:nth-child(3) {
+        transform: translateY(-8.5px) rotate(-45deg);
+    }
+
+    .hero-content {
+        padding-top: 50px;
+        margin-bottom: 50px;
+    }
+
+    .hero-content h1 {
+        font-size: 32px;
+    }
+
+    .hero-content .hero-subtitle,
+    .hero-content .hero-description {
+        font-size: 14px;
+    }
+
+    button {
+        padding: 12px 25px;
+        font-size: 12px;
+    }
+
+    /* "What we do..." Mobile Adjustments */
+    .section-title {
+        font-size: 28px;
+    }
+
+    .section-description {
+        margin-bottom: 50px;
+        padding: 0 15px;
+    }
+
+    .features-grid,
+    .results-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    /* "Our results" Mobile Adjustments */
+    .result-item {
+        padding-bottom: 50px;
+    }
+
+    .pentagon {
+        width: 120px;
+        height: 120px;
+        margin-bottom: 10px;
+        padding: 5px;
+    }
+
+    .result-number {
+        font-size: 36px;
+    }
+
+    .pentagon-text {
+        font-size: 12px;
+    }
+
+    /* "Contact us" Mobile Adjustments */
+    .contact-form {
+        margin-top: 30px;
+        padding: 0 15px;
+    }
+
+    .form-group {
+        margin-bottom: 25px;
+    }
+
+    .contact-form .call-to-action-btn {
+        max-width: 180px;
+        font-size: 12px;
+        padding: 12px 25px;
+    }
+
+    /* Footer Mobile Adjustments */
+    .footer-content {
+        gap: 20px; /* Less space on mobile */
+    }
+
+    .social-icon-link {
+        width: 35px; /* Slightly smaller social icons on mobile */
+        height: 35px;
+        font-size: 18px;
+    }
+
+    .copyright p {
+        font-size: 12px;
+    }
+
+/* Desktop layout for footer (over 480px) */
+@media (min-width: 481px) {
+    .footer-top { /* Target the new footer-top container */
+        flex-direction: row; /* Arrange logo and social icons in a row */
+        justify-content: space-between; /* Space logo to left, social icons to right */
+        align-items: center;
+        padding-bottom: 0; /* Remove mobile padding from bottom of footer-top on desktop */
+    }
+
+    .copyright-container { /* Ensure copyright container is centered and takes full width */
+        padding-top: 0; /* No top padding on desktop as it's distinct */
+        border-top: none; /* No border on desktop, as it's visually separate */
+        margin-top: 20px; /* Add space between top row and copyright */
+    }
+}
